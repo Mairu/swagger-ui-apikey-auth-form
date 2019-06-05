@@ -39,7 +39,7 @@
     <script>
     window.onload = function() {
       // Begin Swagger UI call region
-      const ui = SwaggerUIBundle({
+      const ui = window.ui = SwaggerUIBundle({
         url: "https://petstore.swagger.io/v2/swagger.json",
         dom_id: '#swagger-ui',
         deepLinking: true,
@@ -48,13 +48,25 @@
           SwaggerUIStandalonePreset
         ],
         plugins: [
-          SwaggerUIBundle.plugins.DownloadUrl
+          SwaggerUIBundle.plugins.DownloadUrl,
+          SwaggerUIApiKeyAuthFormPlugin,
         ],
-        layout: "StandaloneLayout"
+        layout: "StandaloneLayout",
+        configs: {
+          apiKeyAuthFormPlugin: {
+            api_key: {
+              authCallback(values, callback) {
+                if (values.username === 'user' && values.password === 'secret') {
+                  callback(null, 'special-key');
+                } else {
+                  callback('invalid credentials');
+                }
+              }
+            }
+          }
+        }
       });
       // End Swagger UI call region
-
-      window.ui = ui
     }
   </script>
   </body>
