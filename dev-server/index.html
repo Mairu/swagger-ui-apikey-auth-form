@@ -54,14 +54,19 @@
         layout: "StandaloneLayout",
         configs: {
           apiKeyAuthFormPlugin: {
-            api_key: {
-              authCallback(values, callback) {
-                if (values.username === 'user' && values.password === 'secret') {
-                  callback(null, 'special-key');
-                } else {
-                  callback('invalid credentials');
+            forms: {
+              api_key: {
+                authCallback: function(values, callback) {
+                  if (values.username === 'user' && values.password === 'secret') {
+                    callback(null, 'special-key');
+                  } else {
+                    callback('invalid credentials');
+                  }
                 }
               }
+            },
+            localStorage: {
+              api_key: {}
             }
           }
         }

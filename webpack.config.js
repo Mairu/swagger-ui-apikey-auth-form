@@ -37,5 +37,8 @@ module.exports = {
       path.join(__dirname, 'dev-server'),
       path.dirname(require.resolve('swagger-ui-dist'))
     ],
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   }
 };

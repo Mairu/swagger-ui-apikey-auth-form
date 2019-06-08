@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const defaultConfig = {
+  containerStyle: {
+    marginLeft: 20
+  },
   fields: {
     username: {
       type: 'text',
@@ -15,7 +17,7 @@ const defaultConfig = {
   submitBtnLabel: 'Get Key with Credentials',
 };
 
-export default class ApiKeyAuthForm extends Component {
+export default (React) => class ApiKeyAuthForm extends React.Component {
   static propTypes = {
     authorized: PropTypes.object,
     getComponent: PropTypes.func.isRequired,
@@ -33,8 +35,8 @@ export default class ApiKeyAuthForm extends Component {
     const values = {};
     let showForm = false;
 
-    if (pluginConfig && typeof pluginConfig[name] === 'object') {
-      Object.assign(config, defaultConfig, pluginConfig[name]);
+    if (pluginConfig && pluginConfig.forms && typeof pluginConfig.forms[name] === 'object') {
+      Object.assign(config, defaultConfig, pluginConfig.forms[name]);
       showForm = true;
       Object.keys(config.fields).forEach(name => values[name] = '');
     }
@@ -88,19 +90,20 @@ export default class ApiKeyAuthForm extends Component {
   render() {
     const { getComponent } = this.props;
     const { config, showForm, values, error } = this.state;
+    const value = this.getValue();
 
-    if (!(showForm && this.getValue() !== null)) {
+    if (value || !showForm) {
       return null;
     }
 
-    const { fields, submitBtnLabel } = config;
+    const { containerStyle, fields, submitBtnLabel } = config;
 
     const Input = getComponent('Input');
     const Row = getComponent('Row');
     const Col = getComponent('Col');
     const Button = getComponent('Button');
 
-    return <div>
+    return <div className="auth-container-api-key-form" style={containerStyle}>
       {Object.entries(fields).map(([name, fieldProps]) => {
         const {
           label = 'Label',
