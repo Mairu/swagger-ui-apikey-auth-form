@@ -24,6 +24,7 @@
     "type": "git",
     "url": "https://github.com/Mairu/swagger-ui-apikey-auth-form"
   },
+  "homepage": "https://mairu.github.io/swagger-ui-apikey-auth-form",
   "files": [
     "dist",
     "src"

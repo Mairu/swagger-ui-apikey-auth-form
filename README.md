@@ -4,6 +4,10 @@
 A plugin for Swagger UI to authenticate using credentials to generate a token which is used as apiKey header. Works also for bearer authentication of OpenApi V3.
 Also keeps an api token in the localStorage if configured, which helps with page reloads (on development).
 
+## Demo
+A Demo of Swagger UI using this plugin as available [here](https://mairu.github.io/swagger-ui-apikey-auth-form/demo).
+The credentials for the api key authentication are `user` with password `secret`.
+
 ## Compatibility
 The plugin was developed using Swagger UI Version 3.22. As it uses internal APIs of Swagger UI,
 they could change and break the plugin.
