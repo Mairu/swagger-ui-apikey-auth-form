@@ -50,6 +50,27 @@ they could change and break the plugin.
                   
                   // on success
                   callback(null, 'the api key here');
+
+                  // example using SwaggerUIs fetch api
+                  ui.fn.fetch({
+                    url: '/authenticate',
+                    method: 'post',
+                    headers: {
+                      Accept: 'application/json',
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(value),
+                  }).then(function (response) {
+                    const json = JSON.parse(response.data);
+                    if (json.token) {
+                      callback(null, 'Bearer ' + json.token);
+                    } else {
+                      callback('error while login');
+                    }
+                  }).catch(function (err) {
+                    console.log(err, Object.entries(err));
+                    callback('error while login');
+                  });
                 },
               }
             },
