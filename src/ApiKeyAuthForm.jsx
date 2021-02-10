@@ -8,10 +8,12 @@ const defaultConfig = {
     username: {
       type: 'text',
       label: 'Username',
+      initialValue: '',
     },
     password: {
       type: 'password',
       label: 'Password',
+      initialValue: '',
     },
   },
   submitBtnLabel: 'Get Key with Credentials',
@@ -38,7 +40,7 @@ export default (React) => class ApiKeyAuthForm extends React.Component {
     if (pluginConfig && pluginConfig.forms && typeof pluginConfig.forms[name] === 'object') {
       Object.assign(config, defaultConfig, pluginConfig.forms[name]);
       showForm = true;
-      Object.keys(config.fields).forEach(name => values[name] = '');
+      Object.entries(config.fields).forEach(([name, { initialValue }]) => values[name] = initialValue || '');
     }
 
     this.state = {

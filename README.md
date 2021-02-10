@@ -106,6 +106,7 @@ Here are the config options of the plugin config:
         username: {
           type: 'text',
           label: 'Username',
+          initialValue: 'hans',
         },
         password: {
           type: 'password',
@@ -113,7 +114,7 @@ Here are the config options of the plugin config:
         },
       },
     ```
-    every field can have the keys: type, label, rowProps, colProps, labelProps and inputProps
+    every field can have the keys: type, label, initialValue, rowProps, colProps, labelProps and inputProps
   * **submitBtnLabel**<br>
     Simple string with Label for the submit button. Default is: 'Get Key with Credentials'
 
