@@ -98,7 +98,7 @@ Here are the config options of the plugin config:
   * **containerStyle**<br>
     Object with css in react way for the container that holds the fields and the submit button.
     If not provided the default is used `{ marginLeft: 20 }`
-    The container also has the class `auth-container-api-key-form` if other style should be addressed.
+    The container also has the class `auth-container-api-key-form` if other styles should be addressed.
   * **fields**<br>
     Object of fields to render. If not provided the default is used 
     ```

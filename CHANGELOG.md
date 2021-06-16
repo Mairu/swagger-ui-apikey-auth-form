@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2021-06-16
+### Added
+- allow setting onChange in inputProps of field options
+### Security
+- update dependencies
+
 ## [1.1.0] - 2021-02-10
 ### Added
 - allow setting of initialValue for fields in the config

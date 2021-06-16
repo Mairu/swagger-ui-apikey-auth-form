@@ -40,7 +40,7 @@ export default (React) => class ApiKeyAuthForm extends React.Component {
     if (pluginConfig && pluginConfig.forms && typeof pluginConfig.forms[name] === 'object') {
       Object.assign(config, defaultConfig, pluginConfig.forms[name]);
       showForm = true;
-      Object.entries(config.fields).forEach(([name, { initialValue }]) => values[name] = initialValue || '');
+      Object.entries(config.fields).forEach(([fieldName, { initialValue }]) => values[fieldName] = initialValue || '');
     }
 
     this.state = {
@@ -113,7 +113,7 @@ export default (React) => class ApiKeyAuthForm extends React.Component {
           rowProps = {},
           labelProps = {},
           colProps = {},
-          inputProps = {}
+          inputProps: { onChange: onChangeProp, ...inputProps } = {}
         } = fieldProps;
 
         const valueProps = {};
@@ -123,10 +123,20 @@ export default (React) => class ApiKeyAuthForm extends React.Component {
           valueProps.value = values[name];
         }
 
+        const onChange = onChangeProp
+          ? (event) => {
+            event.persist();
+            const result = onChangeProp(event);
+            if (result !== false) {
+              this.setFieldValue(event);
+            }
+          }
+          : this.setFieldValue;
+
         return (
           <Row key={name} {...rowProps}>
             <label {...labelProps}>{label}:</label>
-            <Col {...colProps}><Input name={name} type={type} {...inputProps} onChange={this.setFieldValue} /></Col>
+            <Col {...colProps}><Input name={name} type={type} {...inputProps} onChange={onChange} /></Col>
           </Row>
         );
       })}
