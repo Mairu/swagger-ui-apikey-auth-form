@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2021-06-16
+### Fix
+- allow setting of initialValue for fields in the config
+
 ## [1.2.0] - 2021-06-16
 ### Added
 - allow setting onChange in inputProps of field options
@@ -27,7 +31,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - authentication form support for api key and bearer authentications
 - localStorage support to keep api keys or bearer tokens
 
-[Unreleased]: https://github.com/Mairu/swagger-ui-apikey-auth-form/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/Mairu/swagger-ui-apikey-auth-form/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/Mairu/swagger-ui-apikey-auth-form/releases/tag/v1.2.1
+[1.2.0]: https://github.com/Mairu/swagger-ui-apikey-auth-form/releases/tag/v1.2.0
 [1.1.0]: https://github.com/Mairu/swagger-ui-apikey-auth-form/releases/tag/v1.1.0
 [1.0.1]: https://github.com/Mairu/swagger-ui-apikey-auth-form/releases/tag/v1.0.1
 [1.0.0]: https://github.com/Mairu/swagger-ui-apikey-auth-form/releases/tag/v1.0.0

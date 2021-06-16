@@ -136,7 +136,9 @@ export default (React) => class ApiKeyAuthForm extends React.Component {
         return (
           <Row key={name} {...rowProps}>
             <label {...labelProps}>{label}:</label>
-            <Col {...colProps}><Input name={name} type={type} {...inputProps} onChange={onChange} /></Col>
+            <Col {...colProps}>
+              <Input name={name} type={type} {...inputProps} {...valueProps} onChange={onChange} />
+            </Col>
           </Row>
         );
       })}
