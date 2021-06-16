@@ -1,6 +1,6 @@
 {
   "name": "@mairu/swagger-ui-apikey-auth-form",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Swagger UI Plugin to allow login with credentials for apiKey and bearer authentications and keep apiKey in localStorage",
   "main": "src/index.js",
   "scripts": {
